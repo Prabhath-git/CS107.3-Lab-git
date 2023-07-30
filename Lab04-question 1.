@@ -1,1 +1,69 @@
+1).using System;
+
+class ConvertValues
+{
+    public void KilometerToMeter()
+    {
+        Console.WriteLine("Enter the distance in kilometers (km):");
+        double km = Convert.ToDouble(Console.ReadLine());
+        double meter = km * 1000;
+        Console.WriteLine($"Converted value: {meter} meters");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        ConvertValues converter = new ConvertValues();
+        converter.KilometerToMeter();
+    }
+}
+2).
+using System;
+
+class ConvertValues
+{
+    public void KilometerToMeter(double km)
+    {
+        double meter = km * 1000;
+        Console.WriteLine($"Converted value: {meter} meters");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter the distance in kilometers (km):");
+        double km = Convert.ToDouble(Console.ReadLine());
+
+        ConvertValues converter = new ConvertValues();
+        converter.KilometerToMeter(km);
+    }
+}
+3).
+using System;
+
+class ConvertValues
+{
+    public double KilometerToMeter(double km)
+    {
+        double meter = km * 1000;
+        return meter;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter the distance in kilometers (km):");
+        double km = Convert.ToDouble(Console.ReadLine());
+
+        ConvertValues converter = new ConvertValues();
+        double result = converter.KilometerToMeter(km);
+        Console.WriteLine($"Converted value: {result} meters");
+    }
+}
 
