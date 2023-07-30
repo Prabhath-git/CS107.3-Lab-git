@@ -1,1 +1,171 @@
+Q3).
+using System;
+
+namespace ArithmeticOperations
+{
+    class CalculateValues
+    {
+        public int Addition(int x, int y)
+        {
+            return x + y;
+        }
+
+        public int Subtraction(int x, int y)
+        {
+            return x - y;
+        }
+
+        public int Multiplication(int x, int y)
+        {
+            return x * y;
+        }
+
+        public int Division(int x, int y)
+        {
+            return x / y;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int choice;
+            int x, y;
+
+            Console.WriteLine("Enter your choice: 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division");
+            choice = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter two numbers:");
+            x = int.Parse(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
+
+            CalculateValues calculateValues = new CalculateValues();
+
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("The sum of {0} and {1} is {2}", x, y, calculateValues.Addition(x, y));
+                    break;
+                case 2:
+                    Console.WriteLine("The difference of {0} and {1} is {2}", x, y, calculateValues.Subtraction(x, y));
+                    break;
+                case 3:
+                    Console.WriteLine("The product of {0} and {1} is {2}", x, y, calculateValues.Multiplication(x, y));
+                    break;
+                case 4:
+                    Console.WriteLine("The quotient of {0} and {1} is {2}", x, y, calculateValues.Division(x, y));
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice");
+                    break;
+            }
+        }
+    }
+}
+Q4).
+// Helper.cs
+using System;
+
+class Helper
+{
+    private void sayHello()
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}
+// Program.cs
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Helper helper = new Helper();
+        // You cannot access the private method directly from here
+        // helper.sayHello();
+    }
+}
+Q5).// ArrayOperations.cs
+using System;
+
+class ArrayOperations
+{
+    public static int FindMinimum(int[] arr)
+    {
+        int min = arr[0];
+        foreach (int num in arr)
+        {
+            if (num < min)
+            {
+                min = num;
+            }
+        }
+        return min;
+    }
+
+    public static int FindMaximum(int[] arr)
+    {
+        int max = arr[0];
+        foreach (int num in arr)
+        {
+            if (num > max)
+            {
+                max = num;
+            }
+        }
+        return max;
+    }
+
+    public static double FindAverage(int[] arr)
+    {
+        int sum = 0;
+        foreach (int num in arr)
+        {
+            sum += num;
+        }
+        return (double)sum / arr.Length;
+    }
+
+    public static int[] ReverseOrder(int[] arr)
+    {
+        int[] reversedArr = new int[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            reversedArr[i] = arr[arr.Length - 1 - i];
+        }
+        return reversedArr;
+    }
+}
+// Program.cs
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = new int[10];
+
+        Console.WriteLine("Enter 10 numbers:");
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            numbers[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        int min = ArrayOperations.FindMinimum(numbers);
+        int max = ArrayOperations.FindMaximum(numbers);
+        double average = ArrayOperations.FindAverage(numbers);
+        int[] reversed = ArrayOperations.ReverseOrder(numbers);
+
+        Console.WriteLine($"Minimum value: {min}");
+        Console.WriteLine($"Maximum value: {max}");
+        Console.WriteLine($"Average value: {average}");
+        Console.WriteLine("Reverse order of values:");
+        foreach (int num in reversed)
+        {
+            Console.Write($"{num} ");
+        }
+        Console.WriteLine();
+    }
+}
 
