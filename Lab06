@@ -1,1 +1,26 @@
+Q6).
+// ArrayOperations.cs
+using System;
 
+class ArrayOperations
+{
+    public void TakeUserInputs(int size)
+    {
+        int[] arr = new int[size * 2];
+
+        Console.WriteLine($"Enter {size} numbers:");
+        for (int i = 0; i < size; i++)
+        {
+            int number = Convert.ToInt32(Console.ReadLine());
+            arr[i * 2] = number;
+            arr[i * 2 + 1] = 0;
+        }
+
+        Console.WriteLine("Values inside the array:");
+        foreach (int num in arr)
+        {
+            Console.Write($"{num} ");
+        }
+        Console.WriteLine();
+    }
+}
